@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+
+group 'com.anajoa.grape.server'
+
+ext.moduleName = 'com.anajoa.grape.server'
+
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+            '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
+}
+
+compileTestJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+            '--module-path', classpath.asPath,
+            '--add-modules', 'junit',
+            '--add-reads', "$moduleName=junit",
+            '--patch-module', "$moduleName=" + files(sourceSets.test.java.srcDirs).asPath,
+        ]
+        classpath = files()
+    }
+}
+
+test {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        jvmArgs = [
+            '--module-path', classpath.asPath,
+            '--add-modules', 'ALL-MODULE-PATH',
+            '--add-reads', "$moduleName=junit",
+            '--patch-module', "$moduleName=" + files(sourceSets.test.java.outputDir).asPath,
+        ]
+        classpath = files()
+    }
+}
+
+sourceCompatibility = 12
+targetCompatibility = 12
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Californium-RELEASE"
+    }
+}
+
+dependencies {
+    compile 'io.projectreactor.netty:reactor-netty'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.imgscalr:imgscalr-lib:4.2'
+    compile 'com.drewnoakes:metadata-extractor:2.12.0'
+    testCompile 'junit:junit:4.12'
+}
