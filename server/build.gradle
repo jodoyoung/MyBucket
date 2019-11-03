@@ -43,6 +43,12 @@ test {
     }
 }
 
+processResources {
+    from ("${rootDir}/front/dist/front/") {
+        into 'static'
+    }
+}
+
 sourceCompatibility = 12
 targetCompatibility = 12
 

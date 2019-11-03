@@ -13,11 +13,11 @@ public class GrapeServer {
 
         DisposableServer server =
                 HttpServer.create()
-                        .port(80)
+                        .port(8080)
                         .compress(true)
                         .route(routes -> {
                             routes.get("/", IndexHandler.index);
-                            routes.file("/static/{path}", "/data/SAM_2568.JPG");
+                            routes.file("/drive/{path}", "/data/SAM_2568.JPG");
                         })
                         .bindNow();
 
