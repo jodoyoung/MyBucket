@@ -1,4 +1,4 @@
-package com.anajoa.grape.server.drive;
+package com.anajoa.grape.domain.drive;
 
 import java.io.IOException;
 import java.nio.file.Files;

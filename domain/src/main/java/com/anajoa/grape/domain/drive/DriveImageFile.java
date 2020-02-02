@@ -1,4 +1,4 @@
-package com.anajoa.grape.server.drive;
+package com.anajoa.grape.domain.drive;
 
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Metadata;

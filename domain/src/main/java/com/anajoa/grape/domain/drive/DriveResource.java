@@ -1,4 +1,4 @@
-package com.anajoa.grape.server.drive;
+package com.anajoa.grape.domain.drive;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

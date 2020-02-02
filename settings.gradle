@@ -1,3 +1,4 @@
 rootProject.name = 'grape'
 
 include 'server'
+include 'domain'

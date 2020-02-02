@@ -1,12 +1,12 @@
-package com.anajoa.grape.server;
+package com.anajoa.grape.domain.drive;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ServerTest {
+public class DriveTests {
 
     @Test
-    public void test() {
+    public void load() {
         Assert.assertTrue(true);
     }
 }
