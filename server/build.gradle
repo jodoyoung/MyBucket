@@ -5,7 +5,7 @@ plugins {
     id 'com.fizzed.rocker' version '1.2.3'
 }
 
-group 'com.anajoa.grape.server'
+group 'com.anajoa.grape'
 
 ext.moduleName = 'com.anajoa.grape.server'
 
@@ -60,7 +60,7 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation project(':domain')
+    implementation project(':usecase')
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'ch.qos.logback:logback-classic:1.2.3'
     implementation 'com.fizzed:rocker-runtime:1.2.3'

@@ -1,5 +1,5 @@
 module com.anajoa.grape.server {
-    requires com.anajoa.grape.domain;
+    requires com.anajoa.grape.usecase;
 
     requires jdk.unsupported;
 
