@@ -1,16 +1,23 @@
 module com.anajoa.grape.server {
+    requires com.anajoa.grape.usecase;
+
     requires jdk.unsupported;
-    requires java.desktop;
+
+    requires spring.core;
+    requires spring.boot;
+    requires spring.boot.autoconfigure;
+    requires spring.web;
+    requires spring.webflux;
+
     requires org.reactivestreams;
     requires reactor.core;
     requires reactor.netty;
-    requires slf4j.api;
-    requires org.apache.commons.io;
-    requires com.fasterxml.jackson.databind;
-    requires static lombok;
-    requires imgscalr.lib;
-    requires metadata.extractor;
+    requires io.netty.codec.http;
 
-    exports com.anajoa.grape.server;
-    opens com.anajoa.grape.server to com.fasterxml.jackson.databind;
+    requires org.slf4j;
+    requires com.fasterxml.classmate;
+
+    opens com.anajoa.grape.server to spring.core, spring.beans, spring.context;
+    opens com.anajoa.grape.server.ui.controller to spring.beans, spring.webflux;
+    opens com.anajoa.grape.server.ui.view to rocker.runtime;
 }
